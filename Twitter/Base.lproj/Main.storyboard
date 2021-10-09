@@ -171,23 +171,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your tweet here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XMh-j6-Wh5">
-                                <rect key="frame" x="0.0" y="56" width="375" height="178"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XMh-j6-Wh5">
+                                <rect key="frame" x="83" y="79" width="276" height="117"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="178" id="lwf-Qn-Q94"/>
+                                    <constraint firstAttribute="height" constant="117" id="7Gn-ax-Vj9"/>
                                 </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="280" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtn-OW-GGN">
+                                <rect key="frame" x="325" y="204" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pKH-3K-DGQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="XMh-j6-Wh5" firstAttribute="leading" secondItem="pKH-3K-DGQ" secondAttribute="leading" id="Ree-70-sMM"/>
-                            <constraint firstItem="XMh-j6-Wh5" firstAttribute="trailing" secondItem="pKH-3K-DGQ" secondAttribute="trailing" id="t5Z-8m-DD6"/>
-                            <constraint firstItem="XMh-j6-Wh5" firstAttribute="top" secondItem="pKH-3K-DGQ" secondAttribute="top" id="wnc-X6-NFT"/>
+                            <constraint firstItem="XMh-j6-Wh5" firstAttribute="top" secondItem="pKH-3K-DGQ" secondAttribute="top" constant="23" id="04J-h4-Jvh"/>
+                            <constraint firstItem="pKH-3K-DGQ" firstAttribute="trailing" secondItem="rtn-OW-GGN" secondAttribute="trailing" constant="16" id="9oe-ge-a3A"/>
+                            <constraint firstItem="pKH-3K-DGQ" firstAttribute="bottom" secondItem="rtn-OW-GGN" secondAttribute="bottom" constant="422" id="AhJ-tC-fQN"/>
+                            <constraint firstItem="rtn-OW-GGN" firstAttribute="leading" secondItem="pKH-3K-DGQ" secondAttribute="leading" constant="325" id="HSr-fn-GN5"/>
+                            <constraint firstItem="rtn-OW-GGN" firstAttribute="leading" secondItem="XMh-j6-Wh5" secondAttribute="trailing" constant="-34" id="M5h-cS-m6k"/>
+                            <constraint firstItem="XMh-j6-Wh5" firstAttribute="leading" secondItem="pKH-3K-DGQ" secondAttribute="leading" constant="83" id="QRo-ZJ-ehS"/>
+                            <constraint firstItem="pKH-3K-DGQ" firstAttribute="bottom" secondItem="XMh-j6-Wh5" secondAttribute="bottom" constant="451" id="TMQ-5t-Fq4"/>
+                            <constraint firstItem="pKH-3K-DGQ" firstAttribute="trailing" secondItem="XMh-j6-Wh5" secondAttribute="trailing" constant="16" id="cl4-Ry-cAn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="brP-PX-bEK">
@@ -205,6 +216,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="charLimitLabel" destination="rtn-OW-GGN" id="zR3-I2-tRP"/>
                         <outlet property="tweetTextView" destination="XMh-j6-Wh5" id="eX4-wm-eBI"/>
                     </connections>
                 </viewController>

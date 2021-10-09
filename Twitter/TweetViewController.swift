@@ -7,10 +7,14 @@
 //
 
 import UIKit
+//import RSKPlaceholderTextView
 
-class TweetViewController: UIViewController {
+class TweetViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var tweetTextView: UITextView!
+    @IBOutlet weak var charLimitLabel: UILabel!
+    
+    let charLimit = 280
     
     @IBAction func cancelTweet(_ sender: Any) {
             dismiss(animated: true, completion: nil)
@@ -26,14 +30,36 @@ class TweetViewController: UIViewController {
             })
         }
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         tweetTextView.becomeFirstResponder()
+        tweetTextView.layer.borderWidth = 1
+        tweetTextView.layer.borderColor = UIColor.lightGray.cgColor
+        tweetTextView.layer.cornerRadius = 10
+        tweetTextView.clipsToBounds = true
+        tweetTextView.delegate = self
+        
+    
 
-        // Do any additional setup after loading the view.
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+        charLimitLabel.text = String(charLimit - tweetTextView.text.count)
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        return newText.count < charLimit
+    }
+    
+    //    func setImage(){
+//        let url = "https://api.twitter.com/1.1/account/verify_credentials.json"
+//        let tweetParams = ["include_email": "true"]
+//        TwitterAPICaller.client?.getDictionaryRequest(url: url, parameters:tweetParams , success: { resp in
+//            let resp = 
+//        }, failure: <#T##(Error) -> ()#>)
+//    }
 
     /*
     // MARK: - Navigation
