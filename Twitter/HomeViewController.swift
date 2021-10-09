@@ -108,6 +108,9 @@ class HomeViewController: UITableViewController {
             cell.setRetweeted(t)
         }
         
+        let entities = tweetArray[indexPath.row]["entities"]
+    
+        
         return cell
     }
     
